@@ -1,0 +1,29 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, :class => "text-yellow" %><br />
+    <%= f.text_field :name, :class => "trans-purple" %>
+  </div>
+  <div class="field">
+    <%= f.label :title, :class => "text-yellow" %><br />
+    <%= f.text_field :title, :class => "trans-purple" %>
+  </div>
+  <div class="field">
+    <%= f.label :content, :class => "text-yellow" %><br />
+    <%= f.text_area :content, :class => "trans-purple" %>
+  </div>
+  <div class="field">
+    <%= f.submit :class => "btn-cirlce" %>
+  </div>
+<% end %>
